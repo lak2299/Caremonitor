@@ -1,0 +1,44 @@
+<div class="list-container">
+    <header class="header">
+      <h1>Items List</h1>
+      <div class="header-actions">
+        <a routerLink="/dashboard" class="back-btn">Back to Dashboard</a>
+        <button class="logout-btn" (click)="logout()">Logout</button>
+      </div>
+    </header>
+    
+    <div class="list-content">
+      <ng-container *ngIf="loading$ | async">
+        <div class="loading-spinner">
+          <div class="spinner"></div>
+          <p>Loading items...</p>
+        </div>
+      </ng-container>
+      
+      <ng-container *ngIf="error$ | async as error">
+        <div class="error-message">
+          <p>{{ error }}</p>
+          <button (click)="loadItems()">Try Again</button>
+        </div>
+      </ng-container>
+      
+      <ng-container *ngIf="(items$ | async)?.length && !(loading$ | async) && !(error$ | async)">
+        <div class="items-list">
+          <div class="item-card" *ngFor="let item of items$ | async">
+            <h3>{{ item.name }}</h3>
+            <p>{{ item.description }}</p>
+            <div class="item-footer">
+              <span class="item-id">ID: {{ item.id }}</span>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      
+      <ng-container *ngIf="(items$ | async)?.length === 0 && !(loading$ | async) && !(error$ | async)">
+        <div class="empty-state">
+          <p>No items found.</p>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  
