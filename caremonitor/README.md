@@ -1,4 +1,18 @@
-# Caremonitor
+Setup Instructions
+
+1. Clone the Repository
+
+git clone https://github.com/your-repo/caremonitor-angular.git
+cd caremonitor-angular
+
+2. Install Dependencies
+
+npm install
+
+3. Run the Angular Application# Caremonitor
+
+ng serve --open
+
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.6.
 
@@ -57,3 +71,15 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+Overview
+
+This is an Angular application that implements authentication and API integration. The application consists of:
+
+A Login Page for authentication.
+
+A Dashboard Page displaying the logged-in user's email.
+
+A List Page fetching and displaying API data with state management.
+
+Authentication handling using cookies.
